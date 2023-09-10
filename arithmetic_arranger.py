@@ -6,6 +6,6 @@ def arithmetic_arranger(problems):
     # 1. Separate list
     for lst in problems:
     # 2. put splitted variable into line
-    
+    #
         
     return arranged_problems
