@@ -44,12 +44,13 @@ def arithmetic_arranger(problems):
 
     # Print element right-aligned depend on the len(dash), aka 'width'
 
-    print(first_line)
     for i in range(0, len(first_line)):
         print(first_line[i].rjust(dash[i]), end="    ")
     print()
     for i in range(0, len(second_line)):
-        print((second_line[i] + third_line[i]).rjust(dash[i]), end="    ")
+        space = (int(dash[i]) - 1 - int(len(third_line[i]))) * " "
+        print(second_line[i] + space + third_line[i].rjust(dash[i]), end="    ")
+
         # print(third_line[i].rjust(dash[i]), end="")
 
     # print(second_line)
