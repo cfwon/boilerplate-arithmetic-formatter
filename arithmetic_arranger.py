@@ -1,4 +1,4 @@
-def arithmetic_arranger(problems):
+def arithmetic_arranger(problems, solution=False):
     ################# Error Detect in Input Format #################
 
     # 1. Judge len(problem) > 5, then return Too many problem:
@@ -48,12 +48,24 @@ def arithmetic_arranger(problems):
         print(first_line[i].rjust(dash[i]), end="    ")
     print()
     for i in range(0, len(second_line)):
-        space = (int(dash[i]) - 1 - int(len(third_line[i]))) * " "
-        print(second_line[i] + space + third_line[i].rjust(dash[i]), end="    ")
+        print(second_line[i] + third_line[i].rjust(dash[i] - 1), end="    ")
+    print()
+    for i in range(0, len(first_line)):
+        print("-" * dash[i], end="    ")
+    print()
 
-        # print(third_line[i].rjust(dash[i]), end="")
+    # Calculate the result
 
-    # print(second_line)
-    # print(third_line)
+    result_int = []
+    if problems[1] == True:
+        for i in range(0, len(first_line)):
+            if second_line[i] == "+":
+                result_int.append(int(first_line[i]) + int(third_line[i]))
+            elif second_line[i] == "-":
+                result_int.append(int(first_line[i]) - int(third_line[i]))
+        result_str = list(map(str, result_int))
 
-    return True
+        for i in range(0, len(first_line)):
+            print(result_str[i].rjust(dash[i]), end="    ")
+
+    return None
